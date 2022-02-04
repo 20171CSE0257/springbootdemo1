@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
-import javax.persistence.Table;
 
 import static org.junit.jupiter.api.Assertions.*;
 @DataJpaTest
@@ -26,7 +25,8 @@ class DepartmentRepositoryTest {
                 .departmentCode("ME-011")
                 .deppartmentAddress("Bangalore")
                 .build();//this is the object that i want to persist
-        testEntityManager.persist(department);//so this particular data will be persisted before i call my actual test case over here
+        testEntityManager.persist(department);
+        //so this particular data will be persisted before i call my actual test case over here
     }
     @Test
     public  void whenFindById_thenReturnDepartment(){
